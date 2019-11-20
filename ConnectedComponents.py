@@ -122,7 +122,7 @@ def main():
 
 
     np.set_printoptions(threshold=sys.maxsize)
-    img = cv2.imread('test.png', cv2.IMREAD_GRAYSCALE)
+    img = cv2.imread("Images/7.png", cv2.IMREAD_GRAYSCALE)
     img2 = (np.array([
         [0, 0, 255, 255, 255], 
         [0, 255, 0, 0, 255], 
