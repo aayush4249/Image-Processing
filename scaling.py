@@ -1,6 +1,10 @@
 import cv2
 import numpy as np
 
+
+
+#Assignment 4
+
 # touch this function, it's not 100% functional
 def binary(image):
 

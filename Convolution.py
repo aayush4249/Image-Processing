@@ -2,6 +2,9 @@ import cv2
 import numpy as np
 np.set_printoptions(threshold=np.inf)
 
+#Assignments 1 and 3
+
+
 #Flip the kernel
 def conv_transform(kernel):
     kernel_copy = kernel.copy()
@@ -18,24 +21,25 @@ def conv_transform(kernel):
 def conv(img,filter):
 
     kernel = conv_transform(filter)
-
-    m,n=img.shape
-    p,q=kernel.shape
-    if p!=q:
-        print("no of rows and column of kernel/mask should equal")
-        return
-    out=np.zeros((m,n))
+    img_row,img_col=img.shape
+    ker_row,ker_col=kernel.shape
+    #if ker_row!=ker_col:
+    #   print("no of rows and column of kernel/mask should equal")
+    #    return
+    out=np.zeros((img_row,img_col))
     
     img = padd(img, kernel)  # Create new array for final image size
-    for a in range(m):
-        for b in range(n):
-            for c in range(p):
-                for d in range(q):
+
+    #Apply convolution, use sliding window method and go pixel by pixel
+    for a in range(img_row):
+        for b in range(img_col):
+            for c in range(ker_row):
+                for d in range(ker_col):
                     out[a,b] = out[a,b]+(kernel[c,d]*img[a+c,b+d])
 
-    print(out)
     return out
 
+#Create new array
 def padd(img,kernel):
     r,c = img.shape
     kr,kc = kernel.shape
@@ -69,16 +73,39 @@ def main():
 
     filter_blur =  (1/(3*3))*np.ones((3, 3), dtype=np.float64)
 
-    img = cv2.imread('dog.png', cv2.IMREAD_GRAYSCALE) / 255
-    #img = (np.array([
-    #	[1, 2],
-    #	[3, 4],
-    #]))
+
+    #A1 stuff comment this out when running A3
+    '''
+    img = cv2.imread('Images/dog.png', cv2.IMREAD_GRAYSCALE) / 255
+   
     convoluted = conv(img, filter_sharpen)
-    #print(convoluted)
     cv2.imshow('image', convoluted)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+    '''
+
+    #A3 Stuff comment this out when running A1
+    filter_A3_1 = (1/3)*np.ones((1, 3), dtype=np.float64)
+
+    filter_A3_2 = (1/3)*np.ones((3, 1), dtype=np.float64)
+
+    filter_1 = (np.array([
+        [1/3, 1/3, 1/3], 
+    ]))
+
+    filter_2 = (np.array([
+        [1/3],
+        [1/3],
+    	[1/3]
+    ]))
+    
+    img = cv2.imread("Images/dog.png", cv2.IMREAD_GRAYSCALE) / 255
+    convoluted = conv(img, filter_1)
+    convoluted2 = conv(convoluted,filter_2)
+    cv2.imshow('image', convoluted2)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
 
  
 
