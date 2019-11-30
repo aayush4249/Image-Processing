@@ -37,17 +37,17 @@ def reduceNoise(img):
     row,col = img.shape 
     newImg = np.zeros((row,col))
     
-    for i in range(1, row - 1):
+    for i in range(1, row - 2):
         
-        for j in range(1, col-1):
+        for j in range(1, col-2):
 
             win = []
             
             #Goes through 3 rows
-            for x in range(i-1,i+2):
+            for x in range(i-2,i+3):
                 
                 #Goes through 3 columns
-                for y in range(j-1,j+2):
+                for y in range(j-2,j+3):
                     
                     win.append(img[x][y])
             
@@ -55,7 +55,7 @@ def reduceNoise(img):
             win.sort()
             
             #Take the center pixel which is 4 in a 3x3 hood
-            newImg[i][j] = win[4]
+            newImg[i][j] = win[12]
     
     return newImg
 

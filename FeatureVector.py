@@ -14,7 +14,7 @@ def main():
     print(vector, file =f)
     
     for x in range(1,10):
-        img = cv2.imread("Images/"+str(x)+"-1.png", cv2.IMREAD_GRAYSCALE)
+        img = cv2.imread("Images/"+str(x)+".png", cv2.IMREAD_GRAYSCALE)
         binary_image = binary(img)
         vector = get_vector(binary_image)
         print(vector, file =f)

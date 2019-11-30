@@ -21,7 +21,7 @@ def main():
     for x in file_vectors:
        vectors.append([float(i) for i in x.split(',')])
     
-    img = cv2.imread("Images/2-1.png", cv2.IMREAD_GRAYSCALE)
+    img = cv2.imread("Images/6-2.png", cv2.IMREAD_GRAYSCALE)
     img_vector = fv.get_vector(img)
     #img_vector = img_vector.tolist()
     number = recognise(img_vector,vectors)
