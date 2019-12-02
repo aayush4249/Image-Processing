@@ -62,7 +62,7 @@ def DFS(i, j, visited, image):
 
 
 
-def checkBounds(i,j,visited,image):
+def checkBounds(i, j, visited, image):
 
     #check if row and column are in range
     #check to ensure the pixel has not been visited yet
@@ -78,26 +78,28 @@ def average(x, y):
     return (x + y) / 2
 
 # scales an image down by half
-def minifyScaleByTwo(image):
+def minifyScale(image, scale_factor):
 
     # get image dimensions
     height, width  = image.shape
-    tHeight = height / 2
-    tWidth = width / 2
+    tHeight = height / scale_factor
+    tWidth = width / scale_factor
 
     # create output image
     output = np.zeros((tHeight, tWidth), np.uint8)
     #output = cv2.resize(output, (tWidth, tHeight))
 
-    for x in range(0, tHeight):
-        x2 = x * 2
-        print("x2", x2)
-        for y in range(0, tWidth):
-            y2 = y * 2
-            print("y2:", y2)
-            p = average(image[x2][y2], image[x2][y2 + 1])
-            q = average(image[x2 + 1][y2], image[x2 + 1][y2 + 1])
-            output[x][y] = average(p, q)
+    for i in range(0, tHeight):
+        x = i * scale_factor
+        print("i, x", i, x)
+        for j in range(0, tWidth):
+            y = j * scale_factor
+
+            # add the average of a group of 4 pixels to the output image
+            output[i][j] = average(
+                average(image[x][y], image[x][y + 1]),
+                average(image[x + 1][y], image[x + 1][y + 1])
+            )
 
     output = binary(output)
     print(output)
@@ -106,16 +108,10 @@ def minifyScaleByTwo(image):
 def main():
 
     img = cv2.imread('images/bird.jpg', cv2.IMREAD_GRAYSCALE)
-    # img2 = (np.array([
-    #         [1, 1, 0, 0, 0], 
-    #         [0, 1, 0, 0, 1], 
-    #         [1, 0, 0, 1, 1], 
-    #         [0, 0, 0, 0, 0], 
-    #         [1, 0, 1, 0, 1]
-    #     ]))
     
     out = binary(img)
-    out = minifyScaleByTwo(img)
+    out = minifyScale(img, 2)
+    cv2.imwrite("Images/scaled2.jpg", out)
     cv2.imshow('image', out)
     cv2.waitKey(0)
     cv2.destroyAllWindows()

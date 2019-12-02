@@ -5,8 +5,8 @@ import cv2
 
 def main():
 
-    img = cv2.imread("Images/noisy2.jpg", 0) 
-    img2 = cv2.imread("Images/dog.png",0) 
+    img = cv2.imread("Images/nice.jpg", 0) 
+    img2 = cv2.imread("Images/quote.jpg", 0) 
 
 
     img_sized = cv2.resize(img, (400, 400))
@@ -19,13 +19,13 @@ def main():
         for j in range(400):
             combined[i][j] = img_sized[i][j] & img2_sized[i][j]
     
-    final = reduceNoise(img)
-    cv2.imwrite("Images/combined.jpg",final)
+    final = reduceNoise(combined)
+    cv2.imwrite("Images/combined.jpg", final)
     
     
     img3 = cv2.imread("Images/combined.jpg")
     
-    cv2.imshow('image', img3)
+    cv2.imshow('Combined Image', img3)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
     
@@ -34,8 +34,8 @@ def main():
 def reduceNoise(img):
     
     #Uses a 3x3 filter to remove noise from the image
-    row,col = img.shape 
-    newImg = np.zeros((row,col))
+    row, col = img.shape 
+    newImg = np.zeros((row, col))
     
     for i in range(1, row - 2):
         
@@ -44,10 +44,10 @@ def reduceNoise(img):
             win = []
             
             #Goes through 3 rows
-            for x in range(i-2,i+3):
+            for x in range(i - 2, i + 3):
                 
                 #Goes through 3 columns
-                for y in range(j-2,j+3):
+                for y in range(j - 2, j + 3):
                     
                     win.append(img[x][y])
             
