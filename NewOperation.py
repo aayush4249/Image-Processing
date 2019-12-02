@@ -26,6 +26,13 @@ def main():
     img3 = cv2.imread("Images/combined.jpg")
     
     cv2.imshow('Combined Image', img3)
+    cv2.imwrite("Images/combined.jpg",final)
+    
+    
+    img3 = cv2.imread("Images/combined.jpg")
+    cv2.imshow("Image 1",img)
+    cv2.imshow("Image 2", img2)
+    cv2.imshow('Original Images vs Double Exposure', img3)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
     

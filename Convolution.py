@@ -28,7 +28,7 @@ def conv(img,filter):
     #    return
     out=np.zeros((img_row,img_col))
     
-    img = padd(img, kernel)  # Create new array for final image size
+    img = padd(img, kernel)  #Padd the array to calculate new dimensions
 
     #Apply convolution, use sliding window method and go pixel by pixel
     for a in range(img_row):
@@ -39,13 +39,13 @@ def conv(img,filter):
 
     return out
 
-#Create new array
+#Padding
 def padd(img,kernel):
     r,c = img.shape
     kr,kc = kernel.shape
     padded = np.zeros((r+kr,c+kc),dtype=img.dtype)
     insert = np.uint((kr)/2)
-    padded[insert:insert+r,insert:insert+c] = img
+    padded[insert:insert+r,insert:insert+c] = img #Populate already existing values
     return padded
 
 
@@ -75,16 +75,20 @@ def main():
 
 
     #A1 stuff comment this out when running A3
-    '''
+    #'''
     img = cv2.imread('Images/dog.png', cv2.IMREAD_GRAYSCALE) / 255
    
     convoluted = conv(img, filter_sharpen)
-    cv2.imshow('image', convoluted)
+    #cv2.imshow('Original', img)
+    #cv2.imshow("Filtered",convoluted)
+    horizontal_stack = np.hstack((img,convoluted))
+    cv2.imshow("Original Vs. Filtered",horizontal_stack)
     cv2.waitKey(0)
-    cv2.destroyAllWindows()
-    '''
+    #cv2.destroyAllWindows()
+    #'''
 
     #A3 Stuff comment this out when running A1
+    '''
     filter_A3_1 = (1/3)*np.ones((1, 3), dtype=np.float64)
 
     filter_A3_2 = (1/3)*np.ones((3, 1), dtype=np.float64)
@@ -102,10 +106,13 @@ def main():
     img = cv2.imread("Images/dog.png", cv2.IMREAD_GRAYSCALE) / 255
     convoluted = conv(img, filter_1)
     convoluted2 = conv(convoluted,filter_2)
-    cv2.imshow('image', convoluted2)
+    convoluted3 = conv(img,filter_blur)
+    horizontal_stack = np.hstack((img,convoluted2))
+    horizontal_stack = np.hstack((horizontal_stack,convoluted3))
+    cv2.imshow('Original Vs. 1/3 and 1/3 Vs. 1/9', horizontal_stack)
     cv2.waitKey(0)
-    cv2.destroyAllWindows()
-
+    #cv2.destroyAllWindows()
+    '''
 
  
 

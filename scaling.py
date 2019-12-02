@@ -108,16 +108,14 @@ def minifyScale(image, scale_factor):
 def main():
 
     img = cv2.imread('images/bird.jpg', cv2.IMREAD_GRAYSCALE)
-    
     out = binary(img)
-    out = minifyScale(img, 2)
-    cv2.imwrite("Images/scaled2.jpg", out)
-    cv2.imshow('image', out)
+    out = minifyScale(img,2)
+    #horizontal_stack = np.hstack((img, out))
+    cv2.imshow('Original vs Scaled', out )
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-    # regions = count_pixels(img2)
-    # print("There are ", regions, " connected regions")
+    
     return
 
 
