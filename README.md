@@ -16,9 +16,6 @@ Ex. Inputting the sharpen kernel given below on a picture of a cat returns a sha
 ![Example of a sharpening convolutuion](https://github.com/aayush4249/Image-Processing/blob/master/Images/Convolution%20Example.jpg)
  
 
- 
-
-
 **Connected Components**
 
 An important aspect of Image Processing is identifying different regions of an image and this program returns just that. It converts an image into a binary image and from there counts all the connected components. The program will return the number the number of black connected components and give a count of the number of pixels in each connected region.
@@ -27,9 +24,16 @@ Ex. In the test image below, we see that there are cleary six regions. The progr
 
 ![Sample Image with 6 connection regions](https://github.com/aayush4249/Image-Processing/blob/master/Images/test.png)
 
+![Connected Regions Solution](https://github.com/aayush4249/Image-Processing/blob/master/Images/regions.jpg)
+
 **Scaling**
 
 Another important image function, scaling images. This program scales an image down by any given factor.
+
+Ex. Scaling an image down to half of it's original size
+
+![Original Image](https://github.com/aayush4249/Image-Processing/blob/master/Images/scaled2.jpg)
+![Scaled down to half](https://github.com/aayush4249/Image-Processing/blob/master/Images/scaled.jpg)
 
 **Feature Vector And Recognise**
 
