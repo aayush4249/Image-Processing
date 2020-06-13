@@ -55,9 +55,8 @@ Example of Image Combination and Noise Removal to Simulate Double Exposure:
 ![First Image of Steve Buscemi](https://github.com/aayush4249/Image-Processing/blob/master/Images/steve.jpg)
 ![Second Image of a Sunset](https://github.com/aayush4249/Image-Processing/blob/master/Images/sunset.jpg)
 
-<br/>
-
 This gives us the resultant end image:
+
 ![End Result of Noise Removal and Image Combination](https://github.com/aayush4249/Image-Processing/blob/master/Images/nice.jpg)
 
 
