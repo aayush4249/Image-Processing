@@ -13,7 +13,7 @@ Ex. Inputting the sharpen kernel given below on a picture of a cat returns a sha
 -1  5 -1
  0 -1  0
  
-
+![Example of a sharpening convolutuion](https://github.com/aayush4249/Image-Processing/blob/master/Images/Convolution%20Example.jpg)
  
 
  
