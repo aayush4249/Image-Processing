@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 np.set_printoptions(threshold=np.inf)
 
-#Assignments 1 and 3
 
 
 #Flip the kernel
@@ -23,11 +22,12 @@ def conv(img,filter):
     kernel = conv_transform(filter)
     img_row,img_col=img.shape
     ker_row,ker_col=kernel.shape
-    #if ker_row!=ker_col:
-    #   print("no of rows and column of kernel/mask should equal")
-    #    return
-    out=np.zeros((img_row,img_col))
     
+    if ker_row!=ker_col:
+       print("no of rows and column of kernel/mask should equal")
+       return
+    out=np.zeros((img_row,img_col))
+
     img = padd(img, kernel)  #Padd the array to calculate new dimensions
 
     #Apply convolution, use sliding window method and go pixel by pixel
@@ -39,7 +39,7 @@ def conv(img,filter):
 
     return out
 
-#Padding
+#Padding function to determine new dimensions
 def padd(img,kernel):
     r,c = img.shape
     kr,kc = kernel.shape
@@ -63,7 +63,7 @@ def main():
         [0, 0, 0],
         [1, 2, 1]
     ]))
-    
+
     filter_edge_detection = (np.array([
     	[1, 0, -1],
     	[0, 0, 0],
@@ -74,47 +74,22 @@ def main():
     filter_blur =  (1/(3*3))*np.ones((3, 3), dtype=np.float64)
 
 
-    #A1 stuff comment this out when running A3
-    #'''
-    img = cv2.imread('Images/dog.png', cv2.IMREAD_GRAYSCALE) / 255
-   
+    img = cv2.imread('Images/cat.jpg', cv2.IMREAD_GRAYSCALE) / 255
+
     convoluted = conv(img, filter_sharpen)
-    #cv2.imshow('Original', img)
+    
+    #cv2.imshow('Original', img)q
     #cv2.imshow("Filtered",convoluted)
+    
     horizontal_stack = np.hstack((img,convoluted))
+    
+    #convoluted = conv(convoluted,filter_sobel_bottom)
+    #horizontal_stack = np.hstack((horizontal_stack,convoluted))
+    
     cv2.imshow("Original Vs. Filtered",horizontal_stack)
     cv2.waitKey(0)
-    #cv2.destroyAllWindows()
-    #'''
-
-    #A3 Stuff comment this out when running A1
-    '''
-    filter_A3_1 = (1/3)*np.ones((1, 3), dtype=np.float64)
-
-    filter_A3_2 = (1/3)*np.ones((3, 1), dtype=np.float64)
-
-    filter_1 = (np.array([
-        [1/3, 1/3, 1/3], 
-    ]))
-
-    filter_2 = (np.array([
-        [1/3],
-        [1/3],
-    	[1/3]
-    ]))
     
-    img = cv2.imread("Images/dog.png", cv2.IMREAD_GRAYSCALE) / 255
-    convoluted = conv(img, filter_1)
-    convoluted2 = conv(convoluted,filter_2)
-    convoluted3 = conv(img,filter_blur)
-    horizontal_stack = np.hstack((img,convoluted2))
-    horizontal_stack = np.hstack((horizontal_stack,convoluted3))
-    cv2.imshow('Original Vs. 1/3 and 1/3 Vs. 1/9', horizontal_stack)
-    cv2.waitKey(0)
     #cv2.destroyAllWindows()
-    '''
-
- 
 
     return
 

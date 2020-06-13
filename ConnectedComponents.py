@@ -186,19 +186,21 @@ def main():
 
 
     np.set_printoptions(threshold=sys.maxsize)
-    img = cv2.imread("Images/test.png", cv2.IMREAD_GRAYSCALE)
+    img = cv2.imread('Images/test.png', cv2.IMREAD_GRAYSCALE) 
     img2 = (np.array([
         [0, 0, 255, 255, 255], 
         [0, 255, 0, 0, 255], 
         [255, 0, 0, 255, 255], 
         [255, 255, 255, 255, 0], 
         [255, 0, 255, 0, 255]] ))
+   
     
-    
-    out = binary(img)
+    out = binary(img) 
+    cv2.imshow("Original Vs. Binary",out)
+    cv2.waitKey(0)
     out = np.array(img)
     sol = count_regions(out)
-    #print(sol)
+    print(sol)
     print("\nCount: \n")
     get_count(sol)
 

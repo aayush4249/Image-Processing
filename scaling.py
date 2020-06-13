@@ -86,7 +86,7 @@ def minifyScale(image, scale_factor):
     tWidth = width / scale_factor
 
     # create output image
-    output = np.zeros((tHeight, tWidth), np.uint8)
+    output = np.zeros((tHeight, tWidth))
     #output = cv2.resize(output, (tWidth, tHeight))
 
     for i in range(0, tHeight):
