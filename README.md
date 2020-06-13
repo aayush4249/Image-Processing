@@ -21,7 +21,11 @@ Ex. Inputting the sharpen kernel given below on a picture of a cat returns a sha
 
 **Connected Components**
 
-An important part of AI, Data Mining and Image Processing is identifying different groups of data and this program returns just that. It converts an image into a binary image and from there counts all the connected components. The program will return the number the number of black connected components and give a count of the number of pixels in each connected region.
+An important aspect of Image Processing is identifying different regions of an image and this program returns just that. It converts an image into a binary image and from there counts all the connected components. The program will return the number the number of black connected components and give a count of the number of pixels in each connected region.
+
+Ex. In the test image below, we see that there are cleary six regions. The program correctly identifies that there are six regions and returns the pixel count of each region.
+
+![Sample Image with 6 connection regions](https://github.com/aayush4249/Image-Processing/blob/master/Images/test.png)
 
 **Scaling**
 
