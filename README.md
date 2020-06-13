@@ -8,9 +8,9 @@ This is a simple image processing and pattern recognition library made using pyt
 This program applies various convolution and correlation filters onto an image after converting it to a greyscale image first. Example filters include a sharpen filter, an edge detection filter, a blurring filter. Essentially any filter can be applied as long as it is given in a N x N matrix such that N is odd.
 
 Ex. Inputting the sharpen kernel given below on a picture of a cat returns a sharper more crisp image:
-
+<br />
  0 -1  0<br/>
--1  5 -1<br/>
+-1  5 -1<br />
  0 -1  0<br/>
  
 ![Example of a sharpening convolutuion](https://github.com/aayush4249/Image-Processing/blob/master/Images/Convolution%20Example.jpg)
