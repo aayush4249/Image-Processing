@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import sys
 
-#Assignment 2
+
 
 #Convert Image to Black and White
 def binary(image):
