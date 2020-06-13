@@ -3,9 +3,8 @@ import numpy as np
 
 
 
-#Assignment 4
 
-# touch this function, it's not 100% functional
+# convert the image to black and white
 def binary(image):
 
     height, width  = image.shape

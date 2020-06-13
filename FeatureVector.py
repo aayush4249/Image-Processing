@@ -2,13 +2,13 @@ import cv2
 import numpy as np
 
 
-#Assignments 5 and 6
+
 
 def main():
 
     #Go through all images and get their feature vectors, then save to file
     f = open("Vectors.txt","w")
-    img = cv2.imread("Images/0.png", cv2.IMREAD_GRAYSCALE)
+    img = cv2.imread("Images/7.png", cv2.IMREAD_GRAYSCALE)
     binary_image = binary(img)
     vector = get_vector(binary_image)
     print(vector, file =f)
@@ -39,7 +39,7 @@ def binary(image):
 
     return output
 
-
+# Get the 9 feature vectors of the image
 def get_vector(img):
 
     rows = img.shape[0]

@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import FeatureVector as fv
 
-#Assignment 7
+
 
 def main():
 
