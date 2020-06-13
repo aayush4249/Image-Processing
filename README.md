@@ -39,8 +39,24 @@ Ex. Scaling an image down to half of it's original size
 
 These two programs make up a very basic classifier. The feature vector program takes images of numbers 0 - 9 then splits them into 9 squares and then calculates the feature vector of each square by getting the ratio black to white pixels in the image. The recognise program is given an image of a digit from 0 - 9 that's not in the training set and calculates the feature vector of that image. It then compares them to to previously generated feature vectors using the minimum euclidean distance method and picks the number with the lowest value.
 
+
+
 **Double Exposure**
 
 After learning about and implementing the various functions this was my own image operation. This program attempts to create a double exposure image by combining two images to simulate a double exposure environment and then uses a 3x3 or 5x5 filter to remove unneccesary noise from the image resulting in a cleaner looking final image.
+
+Example of Noise Removal:
+
+![Non Filtered Noisy Image](https://github.com/aayush4249/Image-Processing/blob/master/Images/noisy2.jpg)
+![Same Image Filtered To Remove Noise](https://github.com/aayush4249/Image-Processing/blob/master/Images/noisy3.jpg)
+
+
+Example of Image Combination and Noise Removal to Simulate Double Exposure:
+![First Image of Steve Buscemi](https://github.com/aayush4249/Image-Processing/blob/master/Images/steve.jpg)
+![Second Image of a Sunset](https://github.com/aayush4249/Image-Processing/blob/master/Images/sunset.jpg)
+
+The resultant end image:
+![End Result of Noise Removal and Image Combination](https://github.com/aayush4249/Image-Processing/blob/master/Images/nice.jpg)
+
 
 
