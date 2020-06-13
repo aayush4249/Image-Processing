@@ -9,7 +9,7 @@ This program applies various convolution and correlation filters onto an image a
 
 Ex. Inputting the sharpen kernel given below on a picture of a cat returns a sharper more crisp image:
 
-&nbsp0 -1  0
+&nbsp 0 -1  0<br/>
 -1  5 -1<br/>
  0 -1  0<br/>
  
